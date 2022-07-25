@@ -39,7 +39,7 @@ for category_type,overheads in enumerate(overhead_list_unsorted):
         #Variable to store the index of the category type
         category = category_type
 #Printing the maximum overhead expense & what category it falls under
-print(f"The maximum overhead expense is: {Max_overhead}, which falls under: {cat_list[category]}")
+print(f"The largest (%) overhead expense is: {Max_overhead}%, which falls under: {cat_list[category]}")
 
 
 
