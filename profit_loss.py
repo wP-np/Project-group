@@ -4,7 +4,7 @@ import csv
 empty_list = []
 pl_list = []
 day_list = []
-file_path = Path.cwd()/"csv_reports"/"p&l.csv"
+file_path = Path.cwd()/"csv_reports"/"Profit and Loss.csv"
 with file_path.open(mode='r', encoding='UTF-8', newline="") as file:
     reader = csv.reader(file)
     next(reader)
