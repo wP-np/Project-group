@@ -39,4 +39,4 @@ for day,difference in enumerate(list_diff):
         #Variable for the index position of the day at which the net profit is negative
         index_day = day +1
 #printing the decline in net profit and the day at which it occured.
-print (f"Change in net profit{final_diff}. Day in which it changed: {day_list[index_day]}")
+print (f"Change in net profit: ${final_diff}. Day in which it changed: {day_list[index_day]}")
