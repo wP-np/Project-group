@@ -39,3 +39,4 @@ for day,difference in enumerate(list_diff):
         index_day = day +1
 #printing the decline in Cash on Hand and the day at which it occured.
 print (f"Change in Cash on Hand: ${final_diff}. Day in which it changed: {day_list[index_day]}")
+print(list_diff)
