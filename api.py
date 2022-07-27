@@ -3,7 +3,7 @@ from cash_on_hand import list_diff
 from overheads import overhead_list
 from profit_loss import pl_list
 import requests
-def api():
+def api_function():
     """
     Function will give the real updated currency exchange rate from USD to SGD based on forex trading 
     """
@@ -19,8 +19,7 @@ def api():
     #Retrieving the real time currency exchange rate data from the dictionary in the JSON object
     return(rate)
 
-api()
-
+api_function()
     
 
 
