@@ -1,8 +1,8 @@
 from pathlib import Path
 import csv
-#The program will compute the difference in the net profit between each day.
-#empty_list to store all of the data form the CSV file
-def profit_loss():
+def profitloss_function():
+    #The program will compute the difference in the net profit between each day.
+    #empty_list to store all of the data form the CSV file
     empty_list = []
     pl_list = []
     day_list = []
@@ -29,15 +29,23 @@ def profit_loss():
     list_diff = []
     #Creating to iterate over the range of data(net profit per day)
     for n in range(1, len(pl_list_final)):
-        #Appending the difference between the net profit per day to list_diff, obtaining the respective values based on their index position n - (n-1)
+    #Appending the difference between the net profit per day to list_diff, obtaining the respective values based on their index position n - (n-1)
         list_diff.append(int(pl_list_final[n] - pl_list_final[n-1]))
     #For loop to iterate over the the data for the difference in net profit per day. (In enumerate) to return the index position of the negative value to be used in the day_list.
     for day,difference in enumerate(list_diff):
         #If statement to identify the values by which the difference is negative
         if difference < 0:
-            #Variable to store the negative values
-            final_diff = difference
+        #Variable to store the negative values as positive
+            final_diff = abs(difference)
             #Variable for the index position of the day at which the net profit is negative
             index_day = day +1
-    #printing the decline in net profit and the day at which it occured.
-    return f"Change in net profit: ${final_diff}. Day in which it changed: {day_list[index_day]}"
+            #printing the decline in net profit and the day at which it occured.
+            print (f"[PROFIT DEFICIT] DAY: {day_list[index_day]}, AMOUNT: SGD{final_diff}")
+        else:
+            continue
+        break
+    else:
+            print("[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
+            
+
+profitloss_function()

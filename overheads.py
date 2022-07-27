@@ -1,7 +1,7 @@
 #The program will compute the highest overhead expense with its respective category.
 from pathlib import Path
 import csv
-def overheads()
+def overhead_function():
     #empty_list to store the CSV data
     empty_list = []
     #overhead_list to store the overhead expense value
@@ -30,17 +30,19 @@ def overheads()
     #Sorting the overhead expense value from highest to lowest of which the 0 index position will always be the highest value
     overhead_list_sorted.sort(reverse=True)
     overhead_list_unsorted = ([float(x) for x in overhead_list])
-        #For loop to iterate over the unsorted overhead expense data for each category. (in enumerate) to return the index position 
+    #For loop to iterate over the unsorted overhead expense data for each category. (in enumerate) to return the index position 
     #of the category type that has the highest overhead expense
     for category_type,overheads in enumerate(overhead_list_unsorted):
         #If statement to obtain the index position of the maximum overhead expense in the unsorted list
         if overheads == overhead_list_sorted[0]:
             #Variable to store the maximum overhead expense value
-            Max_overhead = overheads
+            max_overhead = overheads
             #Variable to store the index of the category type
             category = category_type
-    #Printing the maximum overhead expense & what category it falls under
-    return f"The largest (%) overhead expense is: {Max_overhead}%, which falls under: {cat_list[category]}"
+#Printing the maximum overhead expense & what category it falls under
+    print(f"[HIGHEST OVERHEADS] {cat_list[category]}: {max_overhead}")
+
+overhead_function()
 
 
 
