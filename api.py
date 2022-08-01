@@ -1,7 +1,5 @@
 
-from cash_on_hand import list_diff
-from overheads import overhead_list
-from profit_loss import pl_list
+
 import requests
 def api_function():
     """
@@ -17,7 +15,8 @@ def api_function():
     #Retrieving the data from the API and storing it as JSON object
     rate = (data["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
     #Retrieving the real time currency exchange rate data from the dictionary in the JSON object
-    return(rate)
+    return float(rate)
+
 
 api_function()
     

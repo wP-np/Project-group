@@ -1,7 +1,7 @@
 from pathlib import Path
 import csv
 #The program will compute the difference in the cash on hand between each day.
-def coh_function():
+def coh_function(forex):
     empty_list = []
     coh_list = []
     day_list = []
@@ -33,21 +33,21 @@ def coh_function():
     #For loop to iterate over the the data for the difference in Cash on Hand per day. (In enumerate) to return the index position of the negative value to be used in the day_list.
     for day,difference in enumerate(list_diff):
         #If statement to identify the values by which the difference is negative
+        
         if difference < 0:
             #Variable to store the negative values as postivie
             final_differ = abs(difference)
             #Variable for the index position of the day at which the difference in Cash on Hand is negative
             index_day = day +1
-        
             #printing the decline in Cash on Hand and the day at which it occured.
-            print (f"[CASH DEFICIT] DAY: {day_list[index_day]}, AMOUNT: SGD{final_differ}")
+            SGD_final_differ = final_differ * forex
+            return f"[CASH DEFICIT] DAY: {day_list[index_day]}, AMOUNT: SGD{SGD_final_differ * forex}"
         else:
             continue
-        break
     else:
-        print("[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
+        return "[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN PREVIOUS DAY"
 
-coh_function()
+coh_function(1)
 
 
 

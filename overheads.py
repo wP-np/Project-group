@@ -1,7 +1,7 @@
 #The program will compute the highest overhead expense with its respective category.
 from pathlib import Path
 import csv
-def overhead_function():
+def overhead_function(forex):
     #empty_list to store the CSV data
     empty_list = []
     #overhead_list to store the overhead expense value
@@ -40,9 +40,9 @@ def overhead_function():
             #Variable to store the index of the category type
             category = category_type
 #Printing the maximum overhead expense & what category it falls under
-    print(f"[HIGHEST OVERHEADS] {cat_list[category]}: {max_overhead}")
+    return f"[HIGHEST OVERHEADS] {cat_list[category]}: SGD{max_overhead * forex}"
 
-overhead_function()
+overhead_function(1)
 
 
 

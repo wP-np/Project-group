@@ -1,6 +1,6 @@
 from pathlib import Path
 import csv
-def profitloss_function():
+def profitloss_function(forex):
     #The program will compute the difference in the net profit between each day.
     #empty_list to store all of the data form the CSV file
     empty_list = []
@@ -40,12 +40,11 @@ def profitloss_function():
             #Variable for the index position of the day at which the net profit is negative
             index_day = day +1
             #printing the decline in net profit and the day at which it occured.
-            print (f"[PROFIT DEFICIT] DAY: {day_list[index_day]}, AMOUNT: SGD{final_diff}")
+            return f"[PROFIT DEFICIT] DAY: {day_list[index_day]}, AMOUNT: SGD{final_diff * forex}"
         else:
             continue
-        break
     else:
-            print("[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
+            return "[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN PREVIOUS DAY"
             
 
-profitloss_function()
+profitloss_function(1)
