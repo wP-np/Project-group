@@ -40,7 +40,10 @@ def overhead_function(forex):
             #Variable to store the index of the category type
             category = category_type
 #Printing the maximum overhead expense & what category it falls under
-    return f"[HIGHEST OVERHEADS] {cat_list[category]}: SGD{max_overhead * forex}"
+            file_path1 = Path.cwd()/"summary_report.txt"
+            with file_path1.open(mode = "a", encoding = "UTF-8", newline = "") as file:
+                file.write(f"\n[HIGHEST OVERHEADS] {cat_list[category]}: SGD{max_overhead * forex}")
+
 
 overhead_function(1)
 

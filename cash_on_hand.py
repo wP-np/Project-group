@@ -31,21 +31,26 @@ def coh_function(forex):
         #Appending the difference between the Cash on Hand to list_diff, obtaining the respective values based on their index position n - (n-1)
         list_diff.append(int(coh_list_final[n] - coh_list_final[n-1]))
     #For loop to iterate over the the data for the difference in Cash on Hand per day. (In enumerate) to return the index position of the negative value to be used in the day_list.
-    for day,difference in enumerate(list_diff):
+    file_path1 = Path.cwd()/"summary_report.txt"
+    with file_path1.open(mode = "a", encoding = "UTF-8", newline = "") as file:
+        for day,difference in enumerate(list_diff):
         #If statement to identify the values by which the difference is negative
-        
-        if difference < 0:
+            if difference < 0:
             #Variable to store the negative values as postivie
-            final_differ = abs(difference)
+                final_differ = abs(difference)
             #Variable for the index position of the day at which the difference in Cash on Hand is negative
-            index_day = day +1
-            #printing the decline in Cash on Hand and the day at which it occured.
-            SGD_final_differ = final_differ * forex
-            return f"[CASH DEFICIT] DAY: {day_list[index_day]}, AMOUNT: SGD{SGD_final_differ * forex}"
+                index_day = day +1
+                #printing the decline in Cash on Hand and the day at which it occured.
+                SGD_final_differ = final_differ * forex
+                file_path1 = Path.cwd()/"summary_report.txt"
+                #with file_path1.open(mode = "a", encoding = "UTF-8", newline = "") as file:
+                file.write(f"\n[CASH DEFICIT] DAY: {day_list[index_day]}, AMOUNT: SGD{SGD_final_differ}")
+            else:
+                continue
+            break
         else:
-            continue
-    else:
-        return "[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN PREVIOUS DAY"
+            #with file_path1.open(mode = "a", encoding = "UTF-8", newline = "") as file:
+            file.write("\n[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
 
 coh_function(1)
 

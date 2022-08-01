@@ -31,20 +31,24 @@ def profitloss_function(forex):
     for n in range(1, len(pl_list_final)):
     #Appending the difference between the net profit per day to list_diff, obtaining the respective values based on their index position n - (n-1)
         list_diff.append(int(pl_list_final[n] - pl_list_final[n-1]))
+    file_path1 = Path.cwd()/"summary_report.txt"
+    with file_path1.open(mode = "a", encoding = "UTF-8", newline = "") as file:
     #For loop to iterate over the the data for the difference in net profit per day. (In enumerate) to return the index position of the negative value to be used in the day_list.
-    for day,difference in enumerate(list_diff):
+        for day,difference in enumerate(list_diff):
         #If statement to identify the values by which the difference is negative
-        if difference < 0:
+            if difference < 0:
         #Variable to store the negative values as positive
-            final_diff = abs(difference)
+                final_diff = abs(difference)
             #Variable for the index position of the day at which the net profit is negative
-            index_day = day +1
+                index_day = day +1
             #printing the decline in net profit and the day at which it occured.
-            return f"[PROFIT DEFICIT] DAY: {day_list[index_day]}, AMOUNT: SGD{final_diff * forex}"
+            #with file_path1.open(mode = "a", encoding = "UTF-8", newline = "") as file:
+                file.write(f"\n[PROFIT DEFICIT] DAY: {day_list[index_day]}, AMOUNT: SGD{final_diff * forex}")
+            else:
+                continue
+            break
         else:
-            continue
-    else:
-            return "[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN PREVIOUS DAY"
+            file.write("\n[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
             
 
 profitloss_function(1)
