@@ -46,9 +46,8 @@ def profitloss_function(forex):
                 file.write(f"\n[PROFIT DEFICIT] DAY: {day_list[index_day]}, AMOUNT: SGD{final_diff * forex}")
             else:
                 continue
-            break
-        else:
-            file.write("\n[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
+            if difference > 0:
+                file.write("\n[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
             
 
 profitloss_function(1)

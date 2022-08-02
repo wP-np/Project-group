@@ -47,10 +47,10 @@ def coh_function(forex):
                 file.write(f"\n[CASH DEFICIT] DAY: {day_list[index_day]}, AMOUNT: SGD{SGD_final_differ}")
             else:
                 continue
-            break
-        else:
+        
+            if difference > 0:
             #with file_path1.open(mode = "a", encoding = "UTF-8", newline = "") as file:
-            file.write("\n[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
+                file.write("\n[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
 
 coh_function(1)
 
