@@ -1,7 +1,10 @@
-#The program will compute the highest overhead expense with its respective category.
+
 from pathlib import Path
 import csv
 def overhead_function(forex):
+    """
+    The function will compute the highest overhead expnense and reutrn the value with its respective category
+    """
     #empty_list to store the CSV data
     empty_list = []
     #overhead_list to store the overhead expense value

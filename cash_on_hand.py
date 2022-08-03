@@ -2,6 +2,10 @@ from pathlib import Path
 import csv
 #The program will compute the difference in the cash on hand between each day.
 def coh_function(forex):
+    """
+    The function will compute the difference in the cash on hand between each day and return the difference in cash during the day which
+    has a cash deficit. Meanwhile, if each day is consecutively higher than the other, it will return the cash surplus scenario
+    """
     empty_list = []
     coh_list = []
     day_list = []
@@ -43,13 +47,11 @@ def coh_function(forex):
                 #printing the decline in Cash on Hand and the day at which it occured.
                 SGD_final_differ = final_differ * forex
                 file_path1 = Path.cwd()/"summary_report.txt"
-                #with file_path1.open(mode = "a", encoding = "UTF-8", newline = "") as file:
                 file.write(f"\n[CASH DEFICIT] DAY: {day_list[index_day]}, AMOUNT: SGD{SGD_final_differ}")
             else:
                 continue
         
             if difference > 0:
-            #with file_path1.open(mode = "a", encoding = "UTF-8", newline = "") as file:
                 file.write("\n[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
 
 coh_function(1)
