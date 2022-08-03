@@ -1,7 +1,11 @@
 from pathlib import Path
 import csv
 def profitloss_function(forex):
-    #The program will compute the difference in the net profit between each day.
+    """
+    #The the function will compute the difference in net profits between each day and will return the difference in net profit together with
+    the day that there is a decline in net profit. Meanwhile, if each day is consecutively higher, the function will return the net profit surplus
+    scenario
+    """
     #empty_list to store all of the data form the CSV file
     empty_list = []
     pl_list = []
