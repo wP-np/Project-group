@@ -5,8 +5,8 @@ def api_function():
     """
     Function will give the real updated currency exchange rate from USD to SGD based on forex trading and create the text file summary_report
     """
-    home = Path.home()
-    file_path = home/"OneDrive"/"Documents"/"Project group"/"summary_report.txt"
+    
+    file_path = Path.cwd()/"summary_report.txt"
     file_path.touch()
     api_key = "X5FP3K03TOE3ARUT"
     #Claiming api key from alphavantage

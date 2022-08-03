@@ -2,6 +2,10 @@ from pathlib import Path
 import csv
 #The program will compute the difference in the cash on hand between each day.
 def coh_function(forex):
+    """
+    The function will compute the difference in the cash on hand between each day and return the difference in cash during the day which
+    has a cash deficit. Meanwhile, if each day is consecutively higher than the other, it will return the cash surplus scenario
+    """
     empty_list = []
     coh_list = []
     day_list = []
@@ -24,7 +28,7 @@ def coh_function(forex):
         day_list.append(value[0])
     #Using list comprehension to convert the values in the list from str to int
     coh_list_final = ([int(x) for x in coh_list])
-    #Creating an empty list(list_diff) to store the difference in Cash on Hand between each days
+    #Creating an empty list (list_diff) to store the difference in Cash on Hand between each days
     list_diff = []
     #Creating to iterate over the range of data(Cash on Hand per day)
     for n in range(1, len(coh_list_final)):
@@ -40,16 +44,14 @@ def coh_function(forex):
                 final_differ = abs(difference)
             #Variable for the index position of the day at which the difference in Cash on Hand is negative
                 index_day = day +1
-                #printing the decline in Cash on Hand and the day at which it occured.
-                SGD_final_differ = final_differ * forex
-                file_path1 = Path.cwd()/"summary_report.txt"
-                #with file_path1.open(mode = "a", encoding = "UTF-8", newline = "") as file:
-                file.write(f"\n[CASH DEFICIT] DAY: {day_list[index_day]}, AMOUNT: SGD{SGD_final_differ}")
+                #appending the decline in Cash on Hand and the day at which it occured to summary.txt while converting the value from 
+                #USD to SGD
+                file.write(f"\n[CASH DEFICIT] DAY: {day_list[index_day]}, AMOUNT: SGD{round((final_differ * forex),1)}")
+            #Continue to allow the code to continue iterating over the data at which there is a cash deficit
             else:
                 continue
-        
+            #Otherwise the code will append cash surplus if there is no decline in any day where the difference is always positive
             if difference > 0:
-            #with file_path1.open(mode = "a", encoding = "UTF-8", newline = "") as file:
                 file.write("\n[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
 
 coh_function(1)
