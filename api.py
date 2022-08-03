@@ -1,5 +1,4 @@
 
-from importlib.resources import path
 from pathlib import Path
 import requests
 def api_function():
