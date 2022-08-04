@@ -1,0 +1,21 @@
+Class: TB04
+
+Member 1
+Github user = KeldenChye
+ID: S10243053A
+Name: Chye Kelden
+
+Member 2 
+Github user = wP-np
+ID: S10242464H
+Name: Tan Wei Peng
+
+Member 3
+Github user = BrainChua0109
+ID: S10239816A
+Name: Brian Chua
+
+Member 4:
+Github user = Priscaisthebest
+ID: S10242169K
+Name: Shaun Teo
