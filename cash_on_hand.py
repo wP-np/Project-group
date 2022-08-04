@@ -57,7 +57,7 @@ def coh_function(forex):
                     file.write("\n[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
     except TypeError:
         print("Refer to summary_report.txt")
-
+     #Printing the str if a type error occurs during the conversion
 coh_function(1)
 
 

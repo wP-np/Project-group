@@ -28,7 +28,7 @@ def api_function():
         #Returning the conversion rate in float
     except KeyError:
         with file_path.open(mode = "w", encoding = "UTF-8", newline = "") as file:
-            file.write("Please wait a while, save the files and run the file again, Error accessing the dictionary in alphavantage")
+            file.write("Please wait a while, save the files and run all the files again, Error accessing the dictionary in alphavantage")
     #Ignoring the keyerror from the dictionary
 
 
